@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Неоновый сайт с вопросами</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body onload="initializeTimer()">
+    <header>
+        <h1>Неоновый сайт с вопросами</h1>
+        <div id="loginStatus" class="login-status"></div>
+    </header>
+    <nav>
+        <a href="#home">Главная</a>
+        <a href="#about">О нас</a>
+        <a href="#services">Услуги</a>
+        <a href="#contact">Контакты</a>
+        <a id="registration-button" href="#register" onclick="showRegistrationForm()">Регистрация</a>
+    </nav>
+    <div class="container">
+        <div class="question" id="question1">
+            <h2>Во сколько часов я сегодня встал?</h2>
+            <div class="options">
+                <button onclick="vote('option1')">6:00</button>
+                <button onclick="vote('option2')">7:00</button>
+                <button onclick="vote('option3')">8:00</button>
+                <button onclick="vote('option4')">9:00</button>
+                <button onclick="vote('option5')">10:00</button>
+            </div>
+            <div id="timer" class="timer"></div>
+        </div>
+        <div id="results" style="display:none;">
+            <h2>Результаты</h2>
+            <p id="resultMessage"></p>
+            <button class="next-button" onclick="nextQuestion()">Далее</button>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Неоновый сайт с вопросами
+    </footer>
+
+    <div class="overlay" id="registrationOverlay">
+        <div class="registration-form">
+            <h2>Регистрация</h2>
+            <label for="email">Электронная почта:</label>
+            <input type="email" id="email" required>
+            <label for="password">Пароль:</label>
+            <input type="password" id="password" required>
+            <button onclick="register()">Сохранить</button>
+			<div id="result-message" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
